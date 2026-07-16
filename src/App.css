@@ -312,6 +312,40 @@ section h2::after {
   margin: 0 auto var(--space-sm);
   text-align: center;
 }
+/*  EVENTS SECTION */
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.event-card {
+  width: 300px;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-2);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(124, 92, 255, 0.25);
+}
+
+.event-card h3 {
+  color: var(--text-primary);
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.event-card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
 
 /* Footer*/
 
