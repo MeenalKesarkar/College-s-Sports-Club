@@ -28,7 +28,7 @@ function Home() {
     }
   ];
 
-  
+
   return (
     <>
     <section className="hero">
@@ -117,6 +117,19 @@ function Home() {
         ))}
       </div>
     </section>
+
+
+    <section className="join-club">
+      <h2>Join Our Sports Club</h2>
+
+      <p>
+        Become a part of the KLS BCA Sports Club and represent our college in
+        various sports competitions and events.
+      </p>
+
+      <button className="join-btn">Register Now</button>
+    </section>
+  
 
 
     </>
