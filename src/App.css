@@ -261,6 +261,22 @@ section h2::after {
   border-color: var(--accent);
   transform: translateY(-3px);
 }
+/*  ABOUT SECTION  */
+.about-club {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  max-width: 1200px;
+  padding: var(--space-xl);
+}
+
+.about-club p {
+  font-size: 16px;
+  max-width: 720px;
+  margin: 0 auto var(--space-sm);
+  text-align: center;
+}
+
 
 /* SPORTS SECTION */
 .sports-container {
@@ -297,21 +313,7 @@ section h2::after {
   line-height: 1.7;
 }
 
-/*  ABOUT SECTION  */
-.about-club {
-  background: var(--bg-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  max-width: 1200px;
-  padding: var(--space-xl);
-}
 
-.about-club p {
-  font-size: 16px;
-  max-width: 720px;
-  margin: 0 auto var(--space-sm);
-  text-align: center;
-}
 /*  EVENTS SECTION */
 .events-container {
   display: flex;
