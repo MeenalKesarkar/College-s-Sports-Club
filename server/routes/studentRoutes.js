@@ -1,24 +1,23 @@
-const express = require("express");
+import express from "express";
 
-const router = express.Router();
-
-const {
-    getStudentBySport,
+import {
+    getStudentsBySport,
     getAllStudents,
     addStudent,
     updateStudent,
     deleteStudent
-} = require("../controllers/studentController");
+} from "../controllers/studentController.js";
+
+const router = express.Router();
 
 router.get("/", getAllStudents);
 
-router.get("/:sport", getStudentBySport);
+router.get("/:sport", getStudentsBySport);
 
-router.get("/", addStudent);
+router.post("/", addStudent);
 
-router.get("/:id", updateStudent);
+router.put("/:id", updateStudent);
 
-router.get("/:id", deleteStudent);
+router.delete("/:id", deleteStudent);
 
-module.exports = router;
-
+export default router;

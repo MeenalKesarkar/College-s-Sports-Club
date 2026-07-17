@@ -1,42 +1,42 @@
-const Student = require("../models/Student");
+import Student from "../models/Student.js";
 
-exports.getStudentsBySport = async(req, res)=>{
-    try{
+export const getStudentsBySport = async (req, res) => {
+    try {
         const students = await Student.find({
-            sport:req.params.sport
+            sport: req.params.sport
         });
 
         res.json(students);
     }
-    catch(error){
+    catch (error) {
         res.status(500).json(error);
     }
 };
 
-exports.getAllStudents = async(req,res)=>{
+export const getAllStudents = async (req, res) => {
     const students = await Student.find();
     res.json(students);
 };
 
-exports.addStudent = async(req,res)=>{
+export const addStudent = async (req, res) => {
     const student = await Student.create(req.body);
     res.status(201).json(student);
 };
 
-exports.updateStudent = async(req,res)=>{
-    const Student = await Student.findByIdAndUpdate(
+export const updateStudent = async (req, res) => {
+    const updatedStudent = await Student.findByIdAndUpdate(
         req.params.id,
         req.body,
-        {new:true}
+        { new: true }
     );
 
     res.json(updatedStudent);
 };
 
-exports.deleteStudent = async(req,res)=>{
+export const deleteStudent = async (req, res) => {
     await Student.findByIdAndDelete(req.params.id);
 
     res.json({
-        message:"Student Deleted"
+        message: "Student Deleted"
     });
 };

@@ -1,15 +1,17 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const conncetDB = async () => {
+const connectDB = async () => {
     try {
-        const conn = await  mongoose.connect(process.env.MONGO.URI);
+        const conn = await mongoose.connect(process.env.MONGODB_URI, {
+            dbName: "SportsClubDatabase"
+        });
 
         console.log(`MongoDB Connected: ${conn.connection.host}`);
-    }
-    catch(error){
+        console.log(`Database: ${conn.connection.db.databaseName}`);
+    } catch (error) {
         console.log(error.message);
         process.exit(1);
     }
 };
 
-module.exports = conncetDB;
+export default connectDB;
