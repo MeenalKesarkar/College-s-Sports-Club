@@ -1,0 +1,329 @@
+.login-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#192236;
+
+}
+
+.login-form{
+
+    width:380px;
+
+    background:rgb(30, 15, 58);
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+
+}
+
+.login-form h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.login-form input{
+
+    width:100%;
+
+    padding:12px;
+
+    margin:10px 0;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    font-size:16px;
+
+}
+
+.login-form button{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:15px;
+
+    background:#00fff2;
+
+    color:rgb(30, 2, 2);
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+.login-form button:hover{
+
+    background:#08ffc5;
+
+}
+
+
+
+
+.dashboard{
+
+    padding:40px;
+
+    background:#eef3ff;
+
+    min-height:100vh;
+
+}
+
+.dashboard-title{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+    color:#003366;
+
+}
+
+.student-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+.student-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    transition:.3s;
+    min-height:670px;
+
+}
+
+.student-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.student-image{
+
+    width:100%;
+
+    height:220px;
+
+    overflow:hidden;
+
+    background:#2b313f;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-bottom:3px solid #00c8ff;
+
+}
+
+.student-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+.student-card:hover .student-image img{
+
+    transform:scale(1.08);
+
+}
+
+.student-details{
+
+    padding:20px;
+
+}
+
+.student-name{
+    color: #00F5FF !important;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.student-details{
+
+    padding:28px;
+
+    background:#1b2435;
+
+    color:#fff;
+
+
+}
+
+.student-details strong{
+
+    color:#00e5ff;
+
+    font-weight:700;
+
+}
+
+.student-details p{
+
+    margin:14px 0;
+
+    font-size:18px;
+
+    color:#ddd;
+
+}
+
+.card-buttons{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    padding:20px;
+
+}
+
+.edit-btn{
+
+    padding:10px 25px;
+
+    background:#198754;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.delete-btn{
+
+    padding:10px 25px;
+
+    background:#dc3545;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+.student-details input{
+
+    width:100%;
+
+    margin:8px 0;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    font-size:15px;
+
+}
+
+.save-btn{
+
+    padding:10px 35px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+
+
+.dashboard-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.logout-btn{
+
+    background:#dc3545;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+.logout-btn:hover{
+
+    background:#bb2d3b;
+
+}

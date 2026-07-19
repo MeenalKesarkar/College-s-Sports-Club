@@ -4,6 +4,9 @@ import Home from './Home';
 import About from './About';
 import Sports from "./Sports";
 import SportDetails from "./SportDetails";
+import Login from './login/Login';
+import Dashboard from "./login/Dashboard";
+import ProtectedRoute from "./login/ProtectedRoute";
 import Footer from './Footer';
 import './App.css'
 
@@ -32,6 +35,20 @@ function App() {
     path="/sports/:sport"
     element={<SportDetails />}
   />
+
+  <Route
+    path="/login"
+    element={<Login />}
+  />
+
+  <Route
+    path="/dashboard"
+    element={
+        <ProtectedRoute>
+            <Dashboard />
+        </ProtectedRoute>
+    }
+/>
 
 </Routes>
       <Footer />

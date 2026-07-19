@@ -64,24 +64,47 @@ export const updateStudent = async (req, res) => {
 
     try {
 
-        const student = await Student.findByIdAndUpdate(
+        const updatedStudent = await Student.findByIdAndUpdate(
 
             req.params.id,
 
             req.body,
 
             {
-                new: true
+                new: true,
+                runValidators: true
             }
 
         );
 
-        res.status(200).json(student);
+        if (!updatedStudent) {
 
-    } catch (error) {
+            return res.status(404).json({
+
+                success: false,
+                message: "Student not found"
+
+            });
+
+        }
+
+        res.status(200).json({
+
+            success: true,
+            message: "Student updated successfully",
+            student: updatedStudent
+
+        });
+
+    }
+
+    catch (error) {
 
         res.status(500).json({
+
+            success: false,
             message: error.message
+
         });
 
     }
