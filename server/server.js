@@ -17,6 +17,10 @@ app.use(cors());
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    res.send("College Sports Club Backend is Running 🚀");
+});
+
 app.use("/api/students", studentRoutes);
 
 app.use("/api/admin", adminRoutes);
