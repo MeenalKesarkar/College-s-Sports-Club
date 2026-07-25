@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./login.css";
+import "./Login.css";
 import api from "../../service/api";
 import studentImages from "../studentImages";
 function Dashboard() {
