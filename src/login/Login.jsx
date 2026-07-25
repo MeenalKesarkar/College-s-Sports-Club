@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import api from "../../service/api";
 import './Login.css';
 function Login() {
 
@@ -23,55 +24,44 @@ function Login() {
 
     };
 
-    const handleLogin = async (e) => {
+  const handleLogin = async (e) => {
 
-        e.preventDefault();
+    e.preventDefault();
 
-        try {
+    try {
 
-            const response = await fetch("http://localhost:5000/api/admin/login", {
+        const response = await api.post("/admin/login", formData);
 
-                method: "POST",
+        const data = response.data;
 
-                headers: {
+        if (data.success) {
 
-                    "Content-Type": "application/json"
+            localStorage.setItem("token", data.token);
 
-                },
+            localStorage.setItem("admin", JSON.stringify(data.admin));
 
-                body: JSON.stringify(formData)
+            alert("Login Successful");
 
-            });
+            navigate("/dashboard");
 
-            const data = await response.json();
+        } else {
 
-            if (data.success) {
-
-                localStorage.setItem("token", data.token);
-
-                localStorage.setItem("admin", JSON.stringify(data.admin));
-
-                alert("Login Successful");
-
-                navigate("/dashboard");
-
-            }
-
-            else {
-
-                alert(data.message);
-
-            }
+            alert(data.message);
 
         }
 
-        catch (error) {
+    } catch (error) {
 
-            alert(error.message);
+        console.log(error);
 
-        }
+        alert(
+            error.response?.data?.message ||
+            "Login Failed"
+        );
 
-    };
+    }
+
+};
 
     return (
 

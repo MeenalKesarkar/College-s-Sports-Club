@@ -1,6 +1,6 @@
 import SportCard from "./SportCard";
 
-import college from "./assets/college.jpg";
+import college1 from "./assets/college1.jpg";
 
 import {
   FaRunning,
@@ -48,7 +48,7 @@ function Sports() {
         <div className="facility-left">
 
           <img
-            src={college}
+            src={college1}
             alt="College"
           />
 

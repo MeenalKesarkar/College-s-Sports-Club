@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import api from "../../service/api";
 import studentImages from "../studentImages";
 function Dashboard() {
 
@@ -27,222 +28,140 @@ function Dashboard() {
         sport: ""
     });
 
-    useEffect(() => {
+ useEffect(() => {
+    fetchStudents();
+}, []);
+
+const fetchStudents = async () => {
+    try {
+        const response = await api.get("/students");
+        setStudents(response.data);
+    } catch (error) {
+        console.log(error);
+        alert(
+            error.response?.data?.message ||
+            "Failed to fetch students."
+        );
+    }
+};
+
+const handleEdit = (student) => {
+    setEditingId(student._id);
+
+    setEditData({
+        name: student.name,
+        age: student.age,
+        class: student.class,
+        gender: student.gender,
+        sport: student.sport
+    });
+};
+
+const handleChange = (e) => {
+    setEditData({
+        ...editData,
+        [e.target.name]: e.target.value
+    });
+};
+
+const handleNewStudentChange = (e) => {
+    setNewStudent({
+        ...newStudent,
+        [e.target.name]: e.target.value
+    });
+};
+
+const handleSave = async (id) => {
+    try {
+
+        await api.put(`/students/${id}`, editData);
+
+        alert("Student Updated Successfully");
+
+        setEditingId(null);
+
         fetchStudents();
-    }, []);
 
-    const fetchStudents = async () => {
+    } catch (error) {
 
-        try {
+        console.log(error);
 
-            const response = await fetch(
-                "http://localhost:5000/api/students"
-            );
-
-            const data = await response.json();
-
-            setStudents(data);
-
-        }
-
-        catch (error) {
-
-            console.log(error);
-
-        }
-
-    };
-
-    const handleEdit = (student) => {
-
-        setEditingId(student._id);
-
-        setEditData({
-            name: student.name,
-            age: student.age,
-            class: student.class,
-            gender: student.gender,
-            sport: student.sport
-        });
-
-    };
-
-    const handleChange = (e) => {
-
-        setEditData({
-            ...editData,
-            [e.target.name]: e.target.value
-        });
-
-    };
-
-    const handleNewStudentChange = (e) => {
-
-        setNewStudent({
-            ...newStudent,
-            [e.target.name]: e.target.value
-        });
-
-    };
-
-    const handleSave = async (id) => {
-
-        try {
-
-            const response = await fetch(
-
-                `http://localhost:5000/api/students/${id}`,
-
-                {
-                    method: "PUT",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify(editData)
-                }
-
-            );
-
-            const data = await response.json();
-
-            if (response.ok) {
-
-                alert("Student Updated Successfully");
-
-                setEditingId(null);
-
-                fetchStudents();
-
-            }
-
-            else {
-
-                alert(data.message);
-
-            }
-
-        }
-
-        catch (error) {
-
-            console.log(error);
-
-        }
-
-    };
-
-    const handleDelete = async (id) => {
-
-        const confirmDelete = window.confirm(
-            "Are you sure you want to delete this student?"
+        alert(
+            error.response?.data?.message ||
+            "Failed to update student."
         );
 
-        if (!confirmDelete) return;
+    }
+};
 
-        try {
+const handleDelete = async (id) => {
 
-            const response = await fetch(
+    const confirmDelete = window.confirm(
+        "Are you sure you want to delete this student?"
+    );
 
-                `http://localhost:5000/api/students/${id}`,
+    if (!confirmDelete) return;
 
-                {
-                    method: "DELETE"
-                }
+    try {
 
-            );
+        const response = await api.delete(`/students/${id}`);
 
-            const data = await response.json();
+        alert(response.data.message);
 
-            if (response.ok) {
+        fetchStudents();
 
-                alert(data.message);
+    } catch (error) {
 
-                fetchStudents();
+        console.log(error);
 
-            }
+        alert(
+            error.response?.data?.message ||
+            "Failed to delete student."
+        );
 
-            else {
+    }
+};
 
-                alert(data.message);
+const handleCreate = async () => {
 
-            }
+    try {
 
-        }
+        await api.post("/students", newStudent);
 
-        catch (error) {
+        alert("Student Added Successfully");
 
-            console.log(error);
+        setNewStudent({
+            id: "",
+            name: "",
+            age: "",
+            class: "",
+            gender: "",
+            sport: ""
+        });
 
-        }
+        fetchStudents();
 
-    };
+    } catch (error) {
 
-    const handleCreate = async () => {
+        console.log(error);
 
-        try {
+        alert(
+            error.response?.data?.message ||
+            "Failed to add student."
+        );
 
-            const response = await fetch(
+    }
+};
 
-                "http://localhost:5000/api/students",
+const handleLogout = () => {
 
-                {
-                    method: "POST",
+    localStorage.removeItem("token");
 
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
+    localStorage.removeItem("admin");
 
-                    body: JSON.stringify(newStudent)
-                }
+    navigate("/login");
 
-            );
-
-            const data = await response.json();
-
-            if (response.ok) {
-
-                alert("Student Added Successfully");
-
-                setNewStudent({
-                    id: "",
-                    name: "",
-                    age: "",
-                    class: "",
-                    gender: "",
-                    sport: ""
-                });
-
-                fetchStudents();
-
-            }
-
-            else {
-
-                alert(data.message);
-
-            }
-
-        }
-
-        catch (error) {
-
-            console.log(error);
-
-        }
-
-    };
-
-    const handleLogout = () => {
-
-        localStorage.removeItem("token");
-
-        localStorage.removeItem("admin");
-
-        navigate("/login");
-
-    };
+};
 
   return (
 
@@ -271,7 +190,7 @@ function Dashboard() {
                 .map((student) => (
 
                     <div
-                        className="student-card"
+                        className="student-card  create-student-card"
                         key={student._id}
                     >
 

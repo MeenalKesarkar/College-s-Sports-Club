@@ -6,6 +6,7 @@ import athleteHero from "./assets/athlete-hero.jpg";
 import javelinHero from "./assets/javelin-hero.jpg";
 import studentImages from "./studentImages";
 import SportCard from "./SportCard";
+import api from "../service/api";
 
 import {
   FaRunning,
@@ -20,17 +21,34 @@ function SportDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/students/${sport}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setStudents(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setLoading(false);
-      });
-  }, [sport]);
+
+  const fetchStudents = async () => {
+
+    try {
+
+      setLoading(true);
+
+      const response = await api.get(`/students/${sport}`);
+
+      setStudents(response.data);
+
+    } catch (error) {
+
+      console.log(error);
+
+      setStudents([]);
+
+    } finally {
+
+      setLoading(false);
+
+    }
+
+  };
+
+  fetchStudents();
+
+}, [sport]);
 
   const heroImages = {
   badminton: badmintonHero,
