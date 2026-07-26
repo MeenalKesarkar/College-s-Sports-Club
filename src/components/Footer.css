@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Footer Component Styles — Royal Theme
+   ========================================================================== */
+
+.footer {
+  --footer-bg: #0a0e1a;
+  --footer-text: #7d7a8c;
+  --footer-accent: #c9a24b;
+
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2.5rem);
+  background: var(--footer-bg);
+  border-top: 1px solid rgba(201, 162, 75, 0.2);
+  text-align: center;
+}
+
+.footer p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--footer-text);
+  letter-spacing: 0.02em;
+}

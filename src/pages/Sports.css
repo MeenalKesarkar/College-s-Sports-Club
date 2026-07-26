@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Sports Page Styles — Royal Theme
+   ========================================================================== */
+
+main {
+  --gold: #c9a24b;
+  --gold-bright: #e8c877;
+  --gold-glow: rgba(232, 200, 119, 0.28);
+
+  --surface: #11162a;
+  --surface-2: #171d38;
+  --border-subtle: rgba(201, 162, 75, 0.18);
+
+  --text-primary: #f1eee6;
+  --text-secondary: #b7b2c4;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Scroll Reveal (shared utility) --- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Hero --- */
+
+.sports-hero {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(rgba(10, 12, 24, 0.8), rgba(10, 12, 24, 0.85)),
+    url('https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1800');
+  background-size: cover;
+  background-position: center;
+  animation: fade-in-scale 1s var(--ease) both;
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sports-overlay {
+  max-width: 760px;
+  padding: 0 1.5rem;
+}
+
+.sports-overlay h1 {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.sports-overlay p {
+  margin-top: 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* --- Facility --- */
+
+.facility-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(2rem, 6vw, 4rem);
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: clamp(4rem, 10vh, 6rem) clamp(1.5rem, 5vw, 3rem);
+}
+
+.facility-left {
+  flex: 1;
+}
+
+.facility-left img {
+  width: 100%;
+  border-radius: 22px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s var(--ease);
+}
+
+.facility-left img:hover {
+  transform: translateY(-6px);
+}
+
+.facility-right {
+  flex: 1;
+}
+
+.facility-right h2 {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--text-primary);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 1.25rem;
+}
+
+.facility-right p {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.facility-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.facility-list div {
+  background: linear-gradient(160deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border-subtle);
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.facility-list div:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 24px var(--gold-glow);
+}
+
+/* --- Popular Sports --- */
+
+.popular-section {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding: clamp(3rem, 8vh, 5rem) clamp(1.5rem, 5vw, 3rem);
+}
+
+.popular-section h2 {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--text-primary);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.popular-section h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+  margin: 16px auto 0;
+  border-radius: 999px;
+}
+
+.popular-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+.popular-grid-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.reveal--visible .popular-grid-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 1000px) {
+  .popular-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .facility-section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 650px) {
+  .popular-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .facility-list {
+    grid-template-columns: 1fr;
+  }
+}

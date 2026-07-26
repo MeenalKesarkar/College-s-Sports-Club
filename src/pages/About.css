@@ -1,0 +1,283 @@
+/* ==========================================================================
+   About Page Styles — Royal Theme
+   ========================================================================== */
+
+.about-page {
+  --gold: #c9a24b;
+  --gold-bright: #e8c877;
+  --gold-glow: rgba(232, 200, 119, 0.28);
+
+  --surface: #11162a;
+  --surface-2: #171d38;
+  --border-subtle: rgba(201, 162, 75, 0.18);
+
+  --text-primary: #f1eee6;
+  --text-secondary: #b7b2c4;
+  --text-muted: #7a7690;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Scroll Reveal (shared utility) --- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Hero --- */
+
+.about-hero {
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(4rem, 10vh, 6rem) clamp(1.5rem, 5vw, 2rem) clamp(3rem, 6vh, 4rem);
+  animation: fade-in-up 0.9s var(--ease) both;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-hero .hero-badge {
+  display: inline-block;
+  padding: 6px 18px;
+  margin-bottom: 1.25rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold-bright);
+  background: rgba(201, 162, 75, 0.1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.about-hero h1 {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: var(--text-primary);
+  font-weight: 700;
+  margin: 1rem 0 1.25rem;
+}
+
+.about-hero p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* --- Shared section container + headings --- */
+
+.about-section,
+.mission-grid,
+.why-join,
+.facilities,
+.about-footer {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 5vw, 2rem);
+}
+
+.about-section h2,
+.why-join h2,
+.facilities h2,
+.about-footer h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.about-section h2::after,
+.why-join h2::after,
+.facilities h2::after,
+.about-footer h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+  margin: 16px auto 0;
+  border-radius: 999px;
+}
+
+/* --- Who We Are --- */
+
+.about-section p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  max-width: 760px;
+  margin: 0 auto 1.25rem;
+  text-align: center;
+}
+
+/* --- Mission & Vision --- */
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.mission-card {
+  background: linear-gradient(160deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2.25rem;
+  text-align: center;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+
+.mission-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 14px 34px var(--gold-glow);
+}
+
+.about-icon {
+  font-size: 2.2rem;
+  color: var(--gold-bright);
+  margin-bottom: 1rem;
+}
+
+.mission-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.mission-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* --- Why Join / Facilities (shared card grid pattern) --- */
+
+.feature-grid,
+.facility-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-card,
+.facility-card {
+  background: linear-gradient(160deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 1.75rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease),
+    border-color 0.4s var(--ease), opacity 0.5s var(--ease);
+}
+
+.reveal--visible .feature-card,
+.reveal--visible .facility-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-card:hover,
+.facility-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+  box-shadow: 0 12px 30px var(--gold-glow);
+}
+
+.feature-icon {
+  font-size: 1.9rem;
+  color: var(--gold-bright);
+  margin-bottom: 1rem;
+}
+
+.feature-card h3,
+.facility-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.feature-card p,
+.facility-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* --- Closing / Join Our Winning Team --- */
+
+.about-footer {
+  text-align: center;
+  background: linear-gradient(135deg, var(--surface-2), #0d0f1c);
+  border: 1px solid var(--border-subtle);
+  border-radius: 26px;
+  max-width: 1000px;
+  padding: clamp(3rem, 8vh, 4.5rem) clamp(1.5rem, 5vw, 3rem);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: clamp(3rem, 6vh, 4rem);
+}
+
+.about-footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--gold-glow), transparent 60%);
+  pointer-events: none;
+}
+
+.about-footer p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto 1rem;
+  line-height: 1.8;
+  position: relative;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 900px) {
+  .feature-grid,
+  .facility-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid,
+  .facility-grid {
+    grid-template-columns: 1fr;
+  }
+}
