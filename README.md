@@ -170,9 +170,13 @@ Example:
 - Sport Details
 - Login Page
 - Admin Dashboard
+## 🌐 Live Demo
 
 ---
 
+🚀 **Live Application:**  
+https://college-s-sports-club.vercel.app/
+---
 ## 🚀 Future Enhancements
 
 - Student Login
