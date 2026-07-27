@@ -1,16 +1,196 @@
-# React + Vite
+# 🏆 College Sports Club Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack **MERN (MongoDB, Express.js, React.js, Node.js)** web application developed to manage a college sports club. The system provides a modern interface for viewing sports and allows administrators to efficiently manage student records through a secure dashboard.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📖 Overview
 
-## React Compiler
+The College Sports Club Management System simplifies the management of student athletes participating in different sports. It provides a responsive user interface for visitors and a protected admin dashboard for performing CRUD operations on student data.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🌐 User Features
+
+- Responsive Home Page
+- About Section
+- Sports Overview
+- Individual Sports Pages
+- Student Profiles
+- Attractive UI Design
+- Mobile Friendly Layout
+
+### 🔐 Admin Features
+
+- Secure Login
+- JWT Authentication
+- Admin Dashboard
+- View Students
+- Add New Student
+- Edit Student Details
+- Delete Student
+- Real-time Database Updates
+- Logout Functionality
+
+---
+
+## 🏅 Sports Available
+
+- 🏸 Badminton
+- 🏐 Throwball
+- 🏃 Athletics
+- 🎯 Javelin
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- React.js
+- React Router DOM
+- Axios
+- CSS3
+- Vite
+
+### Backend
+
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT Authentication
+- CORS
+- Dotenv
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/MeenalKesarkar/College-s-Sports-Club.git
+```
+
+### Navigate to Project
+
+```bash
+cd College-s-Sports-Club
+```
+
+### Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+### Install Backend Dependencies
+
+```bash
+cd server
+npm install
+```
+
+---
+
+## ▶️ Run the Application
+
+### Start Backend
+
+```bash
+cd server
+npm start
+```
+
+### Start Frontend
+
+```bash
+npm run dev
+```
+
+Frontend runs on:
+
+```
+http://localhost:5173
+```
+
+Backend runs on:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 🗄 Database
+
+MongoDB Atlas is used for storing:
+
+- Student Details
+- Admin Details
+
+---
+
+## 📌 CRUD Operations
+
+The Admin Dashboard supports:
+
+- ✅ Create Student
+- ✅ Read Student
+- ✅ Update Student
+- ✅ Delete Student
+
+---
+
+## 🔒 Authentication
+
+- JWT Token Authentication
+- Protected Admin Dashboard
+- Secure Login
+- Logout Support
+
+---
+
+## 📸 Screenshots
+
+Add screenshots of your application here.
+
+Example:
+
+- Home Page
+- Sports Page
+- Sport Details
+- Login Page
+- Admin Dashboard
+
+---
+
+## 🚀 Future Enhancements
+
+- Student Login
+- Coach Dashboard
+- Tournament Management
+- Match Scheduling
+- Attendance Tracking
+- Achievement Records
+- Image Upload
+- Search & Filter
+- Email Notifications
+
+---
+
+## 👩‍💻 Author
+
+**Meenal Kesarkar**
+
+GitHub:
+https://github.com/MeenalKesarkar
+
+---
+
+## 📄 License
+
+This project is created for educational and learning purposes.
